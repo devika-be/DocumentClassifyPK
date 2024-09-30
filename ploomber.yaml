@@ -1,0 +1,6 @@
+tasks:
+  - name: app.py
+    source: scripts/app.py
+    environment:
+      apt_packages:
+        - poppler-utils
