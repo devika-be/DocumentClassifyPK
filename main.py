@@ -112,6 +112,7 @@ def extract_keywords_based_on_document(text, document_type):
             "Plot No.": r"plot\s*no[\.:,-]?\s*([^\n,]+)",
             "Situated at": r"situated\s*at[\.:,-]?\s*([^\n,]+)"
         }
+  
     
     extracted_data = {}
     for keyword, pattern in keyword_patterns.items():
@@ -168,11 +169,15 @@ def write_results_to_file(pdf_results, excel_results):
 st.markdown("""
     <style>
         .sidebar .sidebar-content {
-            background-color: #333333;  /* Dark blue */
+            background-color: #001f3f;  /* Dark blue */
             color: white;                /* White text */
         }
-        .sidebar .sidebar-content h1,
-        .sidebar .sidebar-content h2,
+        .sidebar .sidebar-content h1 {
+            color: white;
+        }
+        .sidebar .sidebar-content h2 {
+            color: white;
+        }
         .sidebar .sidebar-content h3 {
             color: white;
         }
@@ -186,7 +191,6 @@ col1, col2 = st.columns([3, 1])
 with col2:
     st_lottie(lottie_animation, height=100)  # Smaller size Lottie animation
 
-# The main content goes into the first column
 # The main content goes into the first column
 with col1:
     st.sidebar.title("Smart Search Title Report Generator!")
@@ -228,4 +232,4 @@ with col1:
             output_file_path = write_results_to_file(pdf_results, excel_results)
             st.download_button("Download Results", data=open(output_file_path, "rb"), file_name="str_results.txt")
         else:
-            st.error("Please upload both PDF and Excel files.")
+            st.error("Please upload both PDF and Excel files.")
